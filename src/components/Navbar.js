@@ -16,12 +16,22 @@ const NavContainer = styled(motion.nav)`
 
 const NavContent = styled.div`
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 12px;
+    height: 70px;
+  }
 `;
 
 const Logo = styled(motion.a)`

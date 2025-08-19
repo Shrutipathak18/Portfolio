@@ -25,19 +25,29 @@
 
 /* Base HTML & Body */
 html {
-  font-size: 16px; /* optimized for normal scaling */
+  font-size: 16px;
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
+/* src/index.css */
 body {
   font-family: 'Inter', sans-serif;
-  font-size: 1rem; /* 16px base */
+  font-size: 1rem;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--primary-color);
   color: var(--text-primary);
   overflow-x: hidden;
+}
+
+/* Update container class */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 /* Custom Scrollbar */

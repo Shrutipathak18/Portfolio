@@ -244,15 +244,7 @@ const Hero = () => {
             >
               <FiLinkedin size={20} />
             </SocialButton>
-            <SocialButton
-              href="https://shrutipathak18.github.io/my-portfolio/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <FiGlobe size={20} />
-            </SocialButton>
+            
           </SocialLinks>
         </TextContent>
 

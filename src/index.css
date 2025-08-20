@@ -88,12 +88,12 @@ p {
 /* Sections */
 .section {
   width: 100%;
-  padding: 1.2rem 0; /* smaller spacing */
+  padding: 0.8rem 0; /* smaller spacing */
 }
 
 /* Hero */
 .hero-section {
-  min-height: 80vh; /* reduced */
+  min-height: 70vh; /* reduced */
   display: flex;
   align-items: center;
   padding: 0 1rem;
@@ -206,14 +206,33 @@ p {
   h1 { font-size: 1.8rem; }
   h2 { font-size: 1.5rem; }
 }
+
 @media (max-width: 768px) {
-  .section { padding: 1rem 0; }
+  .section {
+    padding: 0.6rem 0; /* tighter for tablets/mobiles */
+  }
+
+  .hero-section {
+    min-height: 55vh; /* smaller hero */
+    padding: 0.8rem 0;
+  }
+
   h1 { font-size: 1.6rem; }
   h2 { font-size: 1.3rem; }
   p { font-size: 0.85rem; }
   .hero-content { flex-direction: column; }
 }
+
 @media (max-width: 480px) {
+  .section {
+    padding: 0.5rem 0;
+  }
+
+  .hero-section {
+    min-height: 50vh; /* fits nicely on small screens */
+    padding: 0.5rem 0;
+  }
+
   h1 { font-size: 1.4rem; }
   h2 { font-size: 1.2rem; }
   p { font-size: 0.8rem; }

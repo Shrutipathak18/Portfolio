@@ -148,10 +148,13 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // ✅ Updated scroll with offset for fixed navbar
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const yOffset = -80; // adjust based on your navbar height
+      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setIsOpen(false);
   };
@@ -166,7 +169,7 @@ const Navbar = () => {
       }}
     >
       <NavContent>
-        {/* ✅ Updated Logo - clickable to scroll home */}
+        {/* Logo */}
         <Logo
           href="#home"
           onClick={(e) => {
@@ -195,7 +198,7 @@ const Navbar = () => {
             </NavLink>
           ))}
 
-          {/* ✅ Resume Download Button */}
+          {/* Resume Button */}
           <ResumeButton
             href="/Resume.pdf"
             download="Shruti-Pathak-Resume.pdf"
@@ -210,7 +213,7 @@ const Navbar = () => {
           </ResumeButton>
         </NavLinks>
 
-        {/* ✅ Mobile Menu Button (fixed) */}
+        {/* Mobile Menu Button */}
         <MenuButton onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </MenuButton>
@@ -235,7 +238,7 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            {/* ✅ Resume Download Button for Mobile */}
+            {/* Resume Button Mobile */}
             <ResumeButton
               href="/Resume.pdf"
               download="Shruti-Pathak-Resume.pdf"

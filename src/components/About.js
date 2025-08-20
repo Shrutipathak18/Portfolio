@@ -1,15 +1,20 @@
 // src/components/About.js
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { FiUser, FiCode, FiEdit3, FiZap } from 'react-icons/fi';
-import styled from 'styled-components';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { FiUser, FiCode, FiEdit3, FiZap } from "react-icons/fi";
+import styled from "styled-components";
 
+// ================== Styled Components ==================
 const AboutSection = styled.section`
-  padding: 40px 0;
+  padding: 60px 0;
   background: var(--secondary-color);
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 40px 0;
+  }
 `;
 
 const Container = styled.div`
@@ -20,7 +25,7 @@ const Container = styled.div`
 
 const SectionHeader = styled(motion.div)`
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 `;
 
 const SectionTitle = styled.h2`
@@ -29,27 +34,30 @@ const SectionTitle = styled.h2`
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
 
   @media (max-width: 468px) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
+
+  @media (max-width: 468px) {
+    font-size: 1rem;
+  }
 `;
 
 const ContentGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: start;
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
@@ -60,80 +68,78 @@ const TextContent = styled(motion.div)`
 `;
 
 const AboutTitle = styled.h3`
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 1.5rem;
-  color: var(--text-primary);
 
   @media (max-width: 768px) {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
 `;
 
 const AboutDescription = styled.p`
-  font-size: 1.1rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 `;
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 `;
 
 const StatCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.08);
   }
 `;
 
 const StatNumber = styled.div`
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--accent-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 `;
 
 const StatLabel = styled.div`
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  font-weight: 500;
 `;
 
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
 `;
 
 const SkillCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     background: rgba(255, 255, 255, 0.08);
   }
 `;
 
 const SkillIcon = styled.div`
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 55px;
   margin: 0 auto 1rem;
   background: var(--gradient-primary);
   border-radius: 50%;
@@ -144,43 +150,44 @@ const SkillIcon = styled.div`
 `;
 
 const SkillTitle = styled.h4`
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
 `;
 
 const SkillDescription = styled.p`
   font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 `;
 
+// ================== Data ==================
 const skills = [
   {
-    icon: <FiCode size={24} />,
-    title: 'Full-Stack Development',
-    description: 'React.js, Node.js, Flask, Express, MongoDB, MySQL',
+    icon: <FiCode size={22} />,
+    title: "Full-Stack Development",
+    description: "React.js, Node.js, Flask, Express, MongoDB, MySQL",
   },
   {
-    icon: <FiZap size={24} />,
-    title: 'AI & Automation',
-    description: 'LangChain, LlamaIndex, Hugging Face, REST API integration',
+    icon: <FiZap size={22} />,
+    title: "AI & Automation",
+    description: "LangChain, LlamaIndex, Hugging Face, REST API integration",
   },
   {
-    icon: <FiEdit3 size={24} />,
-    title: 'UI/UX & Performance',
-    description: 'Responsive design, Tailwind CSS, Material-UI, SEO optimization',
+    icon: <FiEdit3 size={22} />,
+    title: "UI/UX & Performance",
+    description: "Responsive design, Tailwind CSS, SEO optimization",
   },
   {
-    icon: <FiUser size={24} />,
-    title: 'Leadership & Collaboration',
-    description: 'Corporate partnerships, event coordination, team management',
+    icon: <FiUser size={22} />,
+    title: "Leadership & Collaboration",
+    description: "Corporate partnerships, event coordination, team management",
   },
 ];
 
+// ================== Component ==================
 const About = () => {
   const [ref, inView] = useInView({
-    threshold: 0.1, // trigger earlier for small screens
+    threshold: 0.15,
     triggerOnce: true,
   });
 
@@ -188,43 +195,51 @@ const About = () => {
     <AboutSection id="about">
       <Container ref={ref}>
         <SectionHeader
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
         >
           <SectionTitle>About Me</SectionTitle>
           <SectionSubtitle>
-            Passionate Computer Science engineer specializing in full-stack development, AI integrations, and high-performance web applications.
+            Passionate Computer Science engineer specializing in full-stack
+            development, AI integrations, and high-performance web apps.
           </SectionSubtitle>
         </SectionHeader>
 
         <ContentGrid>
+          {/* Left Side */}
           <TextContent
-            initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 0, x: -40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <AboutTitle>Innovating at the Intersection of Technology & Creativity</AboutTitle>
+            <AboutTitle>
+              Innovating at the Intersection of Technology & Creativity
+            </AboutTitle>
             <AboutDescription>
-              I’m Shruti Pathak, an Electronics & Computer Science engineer with a passion for creating full-stack applications, AI-powered tools, and performance-driven web solutions. Skilled in React.js, Node.js, Flask, and modern cloud technologies, I focus on building impactful, user-friendly products while continuously exploring emerging innovations.
+              I’m Shruti Pathak, an Electronics & Computer Science engineer with
+              a passion for creating full-stack applications, AI-powered tools,
+              and performance-driven web solutions.
             </AboutDescription>
             <AboutDescription>
-              Beyond coding, I’ve held leadership roles at KIIT E-Cell, spearheading corporate partnerships, investor onboarding, and large-scale events like Blind Pitch at E-Summit 2025 and Smart India Hackathon 2024. I thrive in collaborative environments, enjoy mentoring peers, and actively explore emerging technologies in AI, automation, and cloud computing.
+              Beyond coding, I’ve held leadership roles at KIIT E-Cell,
+              spearheading corporate partnerships, investor onboarding, and
+              large-scale events like Blind Pitch at E-Summit 2025 and Smart
+              India Hackathon 2024.
             </AboutDescription>
 
             <StatsGrid>
               {[
-                { num: '3+', label: 'Major Projects', delay: 0.4 },
-                { num: '5+', label: 'Hackathons', delay: 0.5 },
-                { num: '2+', label: 'Years Leadership', delay: 0.6 },
-                { num: '10+', label: 'Technologies', delay: 0.7 },
+                { num: "3+", label: "Major Projects", delay: 0.3 },
+                { num: "5+", label: "Hackathons", delay: 0.4 },
+                { num: "2+", label: "Years Leadership", delay: 0.5 },
+                { num: "10+", label: "Technologies", delay: 0.6 },
               ].map((stat, i) => (
                 <StatCard
                   key={i}
                   initial={{ opacity: 0, scale: 0.8 }}
-                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 1 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : {}}
                   transition={{ duration: 0.6, delay: stat.delay }}
-                  whileHover={{ scale: 1.05 }}
                 >
                   <StatNumber>{stat.num}</StatNumber>
                   <StatLabel>{stat.label}</StatLabel>
@@ -233,19 +248,19 @@ const About = () => {
             </StatsGrid>
           </TextContent>
 
+          {/* Right Side */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
+            initial={{ opacity: 0, x: 40 }}
+            animate={inView ? { opacity: 1, x: 0 } : {}}
+            transition={{ duration: 0.7, delay: 0.3 }}
           >
             <SkillsGrid>
               {skills.map((skill, index) => (
                 <SkillCard
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 1 }}
-                  transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 >
                   <SkillIcon>{skill.icon}</SkillIcon>
                   <SkillTitle>{skill.title}</SkillTitle>

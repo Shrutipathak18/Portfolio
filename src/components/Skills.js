@@ -161,7 +161,7 @@ const skillsData = {
     { name: 'Postman', percentage: 88 },
     { name: 'CI/CD', percentage: 85 },
     { name: 'Unit Testing', percentage: 82 },
-    { name: 'GCP / AWS', percentage: 80 }
+    { name: 'AWS', percentage: 80 }
   ]
 };
 

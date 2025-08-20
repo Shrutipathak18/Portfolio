@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiGithub, FiEye } from 'react-icons/fi';
+import { FiGithub } from 'react-icons/fi';
 import styled from 'styled-components';
 
 const ProjectsSection = styled.section`
@@ -285,15 +285,7 @@ const Projects = () => {
                     ))}
                   </ProjectTech>
                   <ProjectLinks>
-                    <ProjectLink
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <FiEye size={16} />
-                      Live Demo
-                    </ProjectLink>
+                   
                     <ProjectLink
                       href={project.githubUrl}
                       target="_blank"

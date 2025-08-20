@@ -2,7 +2,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { FiArrowRight, FiGithub, FiLinkedin, FiGlobe } from 'react-icons/fi';
+import { FiArrowRight, FiGithub, FiLinkedin } from 'react-icons/fi';
 
 // Import image from src/assets
 import ShrutiImage from '../assets/Shruti.jpg'; // adjust path if needed

@@ -180,16 +180,16 @@ const skills = [
 
 const About = () => {
   const [ref, inView] = useInView({
-    threshold: 0.3,
+    threshold: 0.1, // trigger earlier for small screens
     triggerOnce: true,
   });
 
   return (
-    <AboutSection id="about" ref={ref}>
-      <Container>
+    <AboutSection id="about">
+      <Container ref={ref}>
         <SectionHeader
           initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 1 }}
           transition={{ duration: 0.8 }}
         >
           <SectionTitle>About Me</SectionTitle>
@@ -201,7 +201,7 @@ const About = () => {
         <ContentGrid>
           <TextContent
             initial={{ opacity: 0, x: -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <AboutTitle>Innovating at the Intersection of Technology & Creativity</AboutTitle>
@@ -213,48 +213,29 @@ const About = () => {
             </AboutDescription>
 
             <StatsGrid>
-              <StatCard
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <StatNumber>3+</StatNumber>
-                <StatLabel>Major Projects</StatLabel>
-              </StatCard>
-              <StatCard
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <StatNumber>5+</StatNumber>
-                <StatLabel>Hackathons</StatLabel>
-              </StatCard>
-              <StatCard
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.6 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <StatNumber>2+</StatNumber>
-                <StatLabel>Years Leadership</StatLabel>
-              </StatCard>
-              <StatCard
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={inView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.6, delay: 0.7 }}
-                whileHover={{ scale: 1.05 }}
-              >
-                <StatNumber>10+</StatNumber>
-                <StatLabel>Technologies</StatLabel>
-              </StatCard>
+              {[
+                { num: '3+', label: 'Major Projects', delay: 0.4 },
+                { num: '5+', label: 'Hackathons', delay: 0.5 },
+                { num: '2+', label: 'Years Leadership', delay: 0.6 },
+                { num: '10+', label: 'Technologies', delay: 0.7 },
+              ].map((stat, i) => (
+                <StatCard
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={inView ? { opacity: 1, scale: 1 } : { opacity: 1 }}
+                  transition={{ duration: 0.6, delay: stat.delay }}
+                  whileHover={{ scale: 1.05 }}
+                >
+                  <StatNumber>{stat.num}</StatNumber>
+                  <StatLabel>{stat.label}</StatLabel>
+                </StatCard>
+              ))}
             </StatsGrid>
           </TextContent>
 
           <motion.div
             initial={{ opacity: 0, x: 50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
+            animate={inView ? { opacity: 1, x: 0 } : { opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <SkillsGrid>
@@ -262,7 +243,7 @@ const About = () => {
                 <SkillCard
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  animate={inView ? { opacity: 1, y: 0 } : { opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   whileHover={{ scale: 1.05 }}
                 >

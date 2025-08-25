@@ -7,59 +7,60 @@ import styled from "styled-components";
 
 // ================== Styled Components ==================
 const AboutSection = styled.section`
-  padding: 60px 0;
+  padding: 30px 0;   /* reduced from 50px */
   background: var(--secondary-color);
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    padding: 40px 0;
+    padding: 20px 0;
   }
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 900px;   /* tighter container */
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 16px;
 `;
 
 const SectionHeader = styled(motion.div)`
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;   /* reduced spacing */
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2rem;   /* smaller title */
+  margin-bottom: 0.5rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
   @media (max-width: 468px) {
-    font-size: 2.2rem;
+    font-size: 1.5rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  max-width: 650px;
+  max-width: 550px;
   margin: 0 auto;
+  line-height: 1.4;
 
   @media (max-width: 468px) {
-    font-size: 1rem;
+    font-size: 0.85rem;
   }
 `;
 
 const ContentGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 1.5rem;   /* smaller spacing */
   align-items: start;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
   }
 `;
 
@@ -68,79 +69,80 @@ const TextContent = styled(motion.div)`
 `;
 
 const AboutTitle = styled.h3`
-  font-size: 2.2rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.4rem;   /* reduced more */
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
 
   @media (max-width: 768px) {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
   }
 `;
 
 const AboutDescription = styled.p`
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.85rem;
+  line-height: 1.5;
   color: var(--text-secondary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.8rem;
 `;
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 0.8rem;
+  margin-top: 1rem;
 `;
 
 const StatCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
+  padding: 0.8rem;
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.08);
   }
 `;
 
 const StatNumber = styled.div`
-  font-size: 2rem;
+  font-size: 1.3rem;  /* smaller */
   font-weight: 700;
   color: var(--accent-color);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 `;
 
 const StatLabel = styled.div`
-  font-size: 0.95rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
 `;
 
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.5rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));  
+  gap: 0.8rem;
+  margin-top: 1rem;
 `;
 
 const SkillCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.08);
   }
 `;
 
 const SkillIcon = styled.div`
-  width: 55px;
-  height: 55px;
-  margin: 0 auto 1rem;
+  width: 40px;   /* smaller */
+  height: 40px;
+  margin: 0 auto 0.6rem;
   background: var(--gradient-primary);
   border-radius: 50%;
   display: flex;
@@ -150,35 +152,35 @@ const SkillIcon = styled.div`
 `;
 
 const SkillTitle = styled.h4`
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 0.2rem;
 `;
 
 const SkillDescription = styled.p`
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  line-height: 1.5;
+  line-height: 1.3;
 `;
 
 // ================== Data ==================
 const skills = [
   {
-    icon: <FiCode size={22} />,
+    icon: <FiCode size={18} />,
     title: "Full-Stack Development",
     description: "React.js, Node.js, Flask, Express, MongoDB, MySQL",
   },
   {
-    icon: <FiZap size={22} />,
+    icon: <FiZap size={18} />,
     title: "AI & Automation",
     description: "LangChain, LlamaIndex, Hugging Face, REST API integration",
   },
   {
-    icon: <FiEdit3 size={22} />,
+    icon: <FiEdit3 size={18} />,
     title: "UI/UX & Performance",
     description: "Responsive design, Tailwind CSS, SEO optimization",
   },
   {
-    icon: <FiUser size={22} />,
+    icon: <FiUser size={18} />,
     title: "Leadership & Collaboration",
     description: "Corporate partnerships, event coordination, team management",
   },
@@ -195,9 +197,9 @@ const About = () => {
     <AboutSection id="about">
       <Container ref={ref}>
         <SectionHeader
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
           <SectionTitle>About Me</SectionTitle>
           <SectionSubtitle>
@@ -209,9 +211,9 @@ const About = () => {
         <ContentGrid>
           {/* Left Side */}
           <TextContent
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
             <AboutTitle>
               Innovating at the Intersection of Technology & Creativity
@@ -237,9 +239,9 @@ const About = () => {
               ].map((stat, i) => (
                 <StatCard
                   key={i}
-                  initial={{ opacity: 0, scale: 0.8 }}
+                  initial={{ opacity: 0, scale: 0.85 }}
                   animate={inView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.6, delay: stat.delay }}
+                  transition={{ duration: 0.5, delay: stat.delay }}
                 >
                   <StatNumber>{stat.num}</StatNumber>
                   <StatLabel>{stat.label}</StatLabel>
@@ -250,15 +252,15 @@ const About = () => {
 
           {/* Right Side */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.7, delay: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
           >
             <SkillsGrid>
               {skills.map((skill, index) => (
                 <SkillCard
                   key={index}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 15 }}
                   animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
                 >

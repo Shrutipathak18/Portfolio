@@ -22,54 +22,54 @@ const fadeInRight = {
 
 // ===== Styled Components =====
 const ContactSection = styled.section`
-  padding: 100px 0;
+  padding: 70px 0; /* smaller */
   background: var(--secondary-color);
   position: relative;
   overflow: hidden;
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1100px; /* slightly smaller */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
   position: relative;
   z-index: 2;
 `;
 
 const SectionHeader = styled(motion.div)`
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; /* smaller */
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.3rem; /* smaller */
+  margin-bottom: 0.8rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem; /* smaller */
   color: var(--text-secondary);
-  max-width: 600px;
+  max-width: 550px;
   margin: 0;
 `;
 
 const ContactGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 2.5rem; /* tighter */
   align-items: start;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 `;
 
@@ -78,31 +78,31 @@ const ContactInfo = styled(motion.div)`
 `;
 
 const ContactTitle = styled.h3`
-  font-size: 2rem;
-  margin-bottom: 2rem;
+  font-size: 1.6rem; /* smaller */
+  margin-bottom: 1.5rem;
   color: var(--text-primary);
 `;
 
 const ContactItem = styled(motion.div)`
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
-  padding: 1.5rem;
+  gap: 0.7rem; /* tighter */
+  margin-bottom: 1.2rem; /* smaller */
+  padding: 0.9rem; /* smaller */
   background: rgba(255, 255, 255, 0.05);
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.08);
   }
 `;
 
 const ContactIcon = styled.div`
-  width: 50px;
-  height: 50px;
+  width: 38px; /* smaller */
+  height: 38px; /* smaller */
   background: var(--gradient-primary);
   border-radius: 50%;
   display: flex;
@@ -110,6 +110,7 @@ const ContactIcon = styled.div`
   justify-content: center;
   color: white;
   flex-shrink: 0;
+  font-size: 0.9rem;
 `;
 
 const ContactDetails = styled.div`
@@ -117,29 +118,29 @@ const ContactDetails = styled.div`
 `;
 
 const ContactLabel = styled.div`
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* smaller */
   color: var(--text-secondary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 `;
 
 const ContactValue = styled.div`
-  font-size: 1.1rem;
+  font-size: 0.95rem; /* smaller */
   color: var(--text-primary);
   font-weight: 500;
 `;
 
 const SocialLinks = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.7rem; /* tighter */
+  margin-top: 1.5rem;
 `;
 
 const SocialButton = styled(motion.a)`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 34px; /* smaller */
+  height: 34px; /* smaller */
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
@@ -154,30 +155,31 @@ const SocialButton = styled(motion.a)`
 
 const ContactForm = styled(motion.form)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 2.5rem;
+  padding: 1.6rem; /* smaller */
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
 `;
 
 const FormGroup = styled.div`
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.1rem; /* smaller */
 `;
 
 const FormLabel = styled.label`
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   color: var(--text-primary);
   font-weight: 500;
+  font-size: 0.9rem; /* smaller */
 `;
 
 const FormInput = styled.input`
   width: 100%;
-  padding: 12px 16px;
+  padding: 9px 14px; /* smaller */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
   color: var(--text-primary);
-  font-size: 1rem;
+  font-size: 0.9rem;
   transition: var(--transition);
 
   &:focus {
@@ -193,13 +195,13 @@ const FormInput = styled.input`
 
 const FormTextarea = styled.textarea`
   width: 100%;
-  padding: 12px 16px;
+  padding: 9px 14px; /* smaller */
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius);
   color: var(--text-primary);
-  font-size: 1rem;
-  min-height: 120px;
+  font-size: 0.9rem;
+  min-height: 90px; /* smaller */
   resize: vertical;
   transition: var(--transition);
 
@@ -218,15 +220,15 @@ const SubmitButton = styled(motion.button)`
   background: var(--gradient-primary);
   color: white;
   border: none;
-  padding: 15px 30px;
+  padding: 10px 20px; /* smaller */
   border-radius: var(--border-radius);
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   transition: var(--transition);
-  font-size: 1rem;
+  font-size: 0.9rem;
 
   &:hover {
     transform: translateY(-2px);
@@ -287,15 +289,15 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: <FiMail size={20} />, label: 'Email', value: '2230121@kiit.ac.in', href: 'mailto:2230121@kiit.ac.in' },
-    { icon: <FiMail size={20} />, label: 'Personal Email', value: 'sp.18pathak@gmail.com', href: 'mailto:sp.18pathak@gmail.com' },
-    { icon: <FiPhone size={20} />, label: 'Phone', value: '+91 8709987702', href: 'tel:+918709987702' },
-    { icon: <FiMapPin size={20} />, label: 'Location', value: 'Bhubaneswar, Odisha, India', href: '#' },
+    { icon: <FiMail size={18} />, label: 'Email', value: '2230121@kiit.ac.in', href: 'mailto:2230121@kiit.ac.in' },
+    { icon: <FiMail size={18} />, label: 'Personal Email', value: 'sp.18pathak@gmail.com', href: 'mailto:sp.18pathak@gmail.com' },
+    { icon: <FiPhone size={18} />, label: 'Phone', value: '+91 8709987702', href: 'tel:+918709987702' },
+    { icon: <FiMapPin size={18} />, label: 'Location', value: 'Bhubaneswar, Odisha, India', href: '#' },
   ];
 
   const socialLinks = [
-    { icon: <FiGithub size={20} />, href: 'https://github.com/Shrutipathak18', label: 'GitHub' },
-    { icon: <FiLinkedin size={20} />, href: 'https://www.linkedin.com/in/shruti-pathak-384735277/', label: 'LinkedIn' },
+    { icon: <FiGithub size={18} />, href: 'https://github.com/Shrutipathak18', label: 'GitHub' },
+    { icon: <FiLinkedin size={18} />, href: 'https://www.linkedin.com/in/shruti-pathak-384735277/', label: 'LinkedIn' },
   ];
 
   return (
@@ -420,7 +422,7 @@ const Contact = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <FiSend size={18} />
+              <FiSend size={16} />
               {isSubmitting ? 'Sending...' : 'Send Message'}
             </SubmitButton>
           </ContactForm>

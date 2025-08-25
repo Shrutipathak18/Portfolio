@@ -6,37 +6,37 @@ import styled from 'styled-components';
 
 // ========== Styled Components ==========
 const ExperienceSection = styled.section`
-  padding: 100px 0;
+  padding: 60px 0; /* reduced from 100px */
   background: var(--primary-color);
   position: relative;
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1100px; /* slightly smaller */
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 15px;
 `;
 
 const SectionHeader = styled(motion.div)`
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem; /* reduced */
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem; /* smaller */
+  margin-bottom: 0.8rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0;
@@ -49,7 +49,7 @@ const SectionSubtitleCentered = styled(SectionSubtitle)`
 
 const Timeline = styled.div`
   position: relative;
-  max-width: 800px;
+  max-width: 750px;
   margin: 0 auto;
 
   &::before {
@@ -70,7 +70,7 @@ const Timeline = styled.div`
 
 const TimelineItem = styled(motion.div)`
   position: relative;
-  margin-bottom: 3rem;
+  margin-bottom: 2.2rem; /* reduced spacing */
   display: flex;
   align-items: center;
 
@@ -93,7 +93,7 @@ const TimelineItem = styled(motion.div)`
 
 const TimelineContent = styled.div`
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1.2rem; /* reduced */
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   width: 45%;
@@ -101,19 +101,19 @@ const TimelineContent = styled.div`
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px); /* lighter hover */
     background: rgba(255, 255, 255, 0.08);
   }
 
   @media (max-width: 768px) {
-    width: calc(100% - 60px);
-    margin-left: 60px;
+    width: calc(100% - 50px);
+    margin-left: 50px;
   }
 `;
 
 const TimelineDot = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   background: var(--accent-color);
   border-radius: 50%;
   position: absolute;
@@ -121,7 +121,7 @@ const TimelineDot = styled.div`
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 2;
-  box-shadow: 0 0 0 4px rgba(100, 255, 218, 0.2);
+  box-shadow: 0 0 0 3px rgba(100, 255, 218, 0.2);
 
   @media (max-width: 768px) {
     left: 20px;
@@ -129,26 +129,26 @@ const TimelineDot = styled.div`
 `;
 
 const JobTitle = styled.h3`
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* smaller */
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 `;
 
 const CompanyName = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--accent-color);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
 `;
 
 const JobDetails = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   flex-wrap: wrap;
 `;
@@ -156,65 +156,66 @@ const JobDetails = styled.div`
 const JobDetail = styled.div`
   display: flex;
   align-items: center;
-  gap: 0.3rem;
+  gap: 0.25rem;
 `;
 
 const JobDescription = styled.p`
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
 `;
 
 const SkillsList = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.4rem;
 `;
 
 const SkillTag = styled.span`
   background: rgba(100, 255, 218, 0.1);
   color: var(--accent-color);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.7rem;
   font-weight: 500;
 `;
 
 const EducationSection = styled.div`
-  margin-top: 4rem;
+  margin-top: 3rem; /* reduced */
 `;
 
 const EducationGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
 `;
 
 const EducationCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 2rem;
+  padding: 1.2rem;
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   transition: var(--transition);
 
   &:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     background: rgba(255, 255, 255, 0.08);
   }
 `;
 
 const DegreeTitle = styled.h3`
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: var(--text-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 `;
 
 const SchoolName = styled.div`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--accent-color);
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 `;
 
 // ========== Animation Variants ==========
@@ -287,7 +288,7 @@ const educationData = [
 // ========== Component ==========
 const Experience = () => {
   const [ref, inView] = useInView({
-    threshold: 0.05,   // 👈 more sensitive, triggers faster
+    threshold: 0.05,
     triggerOnce: true
   });
 
@@ -297,7 +298,7 @@ const Experience = () => {
         <SectionHeader
           variants={fadeInUp}
           initial="hidden"
-          animate={inView ? 'visible' : 'visible'} // 👈 fallback visible
+          animate={inView ? 'visible' : 'visible'}
           transition={{ duration: 0.8 }}
         >
           <SectionTitle>Experience & Education</SectionTitle>
@@ -313,23 +314,23 @@ const Experience = () => {
               key={job.id}
               variants={index % 2 === 0 ? slideInLeft : slideInRight}
               initial="hidden"
-              animate={inView ? 'visible' : 'visible'} // 👈 fallback visible
+              animate={inView ? 'visible' : 'visible'}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
               <TimelineDot />
               <TimelineContent>
                 <JobTitle>{job.title}</JobTitle>
                 <CompanyName>
-                  <FiBriefcase size={16} />
+                  <FiBriefcase size={15} />
                   {job.company}
                 </CompanyName>
                 <JobDetails>
                   <JobDetail>
-                    <FiCalendar size={14} />
+                    <FiCalendar size={13} />
                     {job.period}
                   </JobDetail>
                   <JobDetail>
-                    <FiMapPin size={14} />
+                    <FiMapPin size={13} />
                     {job.location}
                   </JobDetail>
                 </JobDetails>
@@ -349,10 +350,10 @@ const Experience = () => {
           <motion.div
             variants={fadeInUp}
             initial="hidden"
-            animate={inView ? 'visible' : 'visible'} // 👈 fallback visible
+            animate={inView ? 'visible' : 'visible'}
             transition={{ duration: 0.4, delay: 0.3 }}
           >
-            <SectionTitle style={{ textAlign: 'center', marginBottom: '2rem' }}>
+            <SectionTitle style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
               Education
             </SectionTitle>
             <SectionSubtitleCentered>
@@ -364,18 +365,18 @@ const Experience = () => {
                   key={education.id}
                   variants={fadeInUp}
                   initial="hidden"
-                  animate={inView ? 'visible' : 'visible'} // 👈 fallback visible
+                  animate={inView ? 'visible' : 'visible'}
                   transition={{ duration: 0.6, delay: 0.7 + index * 0.1 }}
                   whileHover={{ scale: 1.02 }}
                 >
                   <DegreeTitle>{education.degree}</DegreeTitle>
                   <SchoolName>
-                    <FiAward size={16} />
+                    <FiAward size={15} />
                     {education.school}
                   </SchoolName>
                   <JobDetails>
                     <JobDetail>
-                      <FiCalendar size={14} />
+                      <FiCalendar size={13} />
                       {education.period}
                     </JobDetail>
                   </JobDetails>

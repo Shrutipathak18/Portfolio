@@ -11,31 +11,31 @@ const SkillsSection = styled.section`
 `;
 
 const Container = styled.div`
-  max-width: 1200px;
+  max-width: 1100px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
 `;
 
 const SectionHeader = styled(motion.div)`
   text-align: left;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.2rem; /* reduced */
+  margin-bottom: 0.8rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem; /* reduced */
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0;
@@ -48,44 +48,46 @@ const SectionSubtitleCentered = styled(SectionSubtitle)`
 
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* denser */
+  gap: 1.5rem;
+  margin-top: 2rem;
 `;
 
 const SkillCategory = styled(motion.div)``;
 
 const CategoryTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.2rem; /* smaller */
+  margin-bottom: 1rem;
   color: var(--accent-color);
   text-align: left;
 `;
 
 const SkillItem = styled.div`
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
 `;
 
 const SkillHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.25rem;
 `;
 
 const SkillName = styled.span`
   font-weight: 500;
+  font-size: 0.9rem;
   color: var(--text-primary);
 `;
 
 const SkillPercentage = styled.span`
   font-weight: 600;
+  font-size: 0.85rem;
   color: var(--accent-color);
 `;
 
 const ProgressBar = styled.div`
   width: 100%;
-  height: 6px;
+  height: 5px; /* thinner */
   background: rgba(255, 255, 255, 0.15);
   border-radius: 3px;
   overflow: hidden;
@@ -100,8 +102,8 @@ const TechnologiesGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
+  gap: 1rem; /* tighter spacing */
+  margin-top: 2rem;
 `;
 
 const TechCard = styled(motion.div)`
@@ -109,22 +111,23 @@ const TechCard = styled(motion.div)`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  min-width: 80px;
 `;
 
 const TechIcon = styled.div`
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.6rem; /* smaller */
+  margin-bottom: 0.3rem;
 `;
 
 const TechName = styled.div`
-  font-size: 0.95rem;
+  font-size: 0.8rem; /* reduced */
   color: var(--text-primary);
   font-weight: 500;
 `;
 
 // ========== Animations ==========
 const fadeInUp = {
-  hidden: { opacity: 0, y: 50 },
+  hidden: { opacity: 0, y: 40 },
   visible: { opacity: 1, y: 0 }
 };
 
@@ -251,7 +254,7 @@ const Skills = () => {
           animate={inView ? 'visible' : 'hidden'}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          <SectionTitle style={{ marginTop: '4rem', marginBottom: '2rem', textAlign: 'center' }}>
+          <SectionTitle style={{ marginTop: '3rem', marginBottom: '1.5rem', textAlign: 'center' }}>
             Technologies I Work With
           </SectionTitle>
           <SectionSubtitleCentered>

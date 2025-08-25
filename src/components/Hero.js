@@ -3,13 +3,11 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { FiArrowRight, FiGithub, FiLinkedin } from 'react-icons/fi';
-
-// Import image from src/assets
-import ShrutiImage from '../assets/Shruti.jpg'; // adjust path if needed
+import ShrutiImage from '../assets/Shruti.jpg';
 
 // ===== Styled Components =====
 const HeroSection = styled.section`
-  min-height: 100vh;
+  min-height: 90vh; /* smaller than full screen */
   display: flex;
   align-items: center;
   position: relative;
@@ -20,21 +18,24 @@ const HeroSection = styled.section`
 const Content = styled.div`
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 3rem;
   align-items: center;
-  min-height: 100vh;
+
+  @media (max-width: 1024px) {
+    gap: 2rem;
+  }
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
     text-align: center;
     gap: 2rem;
-    padding: 2rem 16px;
+    padding: 2rem 12px;
   }
 `;
 
@@ -43,40 +44,57 @@ const TextContent = styled.div`
 `;
 
 const Greeting = styled(motion.div)`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--accent-color);
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 `;
 
 const Name = styled(motion.h1)`
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
   line-height: 1.1;
 
+  @media (max-width: 1024px) {
+    font-size: 2.5rem;
+  }
+
   @media (max-width: 768px) {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 `;
 
 const Title = styled(motion.h2)`
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
   font-weight: 400;
 
+  @media (max-width: 1024px) {
+    font-size: 1.3rem;
+  }
+
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
   }
 `;
 
 const Description = styled(motion.p)`
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  margin-bottom: 2rem;
-  line-height: 1.6;
-  max-width: 500px;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  max-width: 450px;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+    margin: 0 auto 1.5rem;
+  }
 `;
 
 const CTAButtons = styled(motion.div)`
@@ -94,14 +112,14 @@ const PrimaryButton = styled(motion.a)`
   background: var(--gradient-primary);
   color: white;
   border: none;
-  padding: 15px 30px;
+  padding: 12px 24px;
   border-radius: var(--border-radius);
   font-weight: 600;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
 `;
 
@@ -109,18 +127,18 @@ const SecondaryButton = styled(motion.a)`
   background: transparent;
   color: var(--accent-color);
   border: 2px solid var(--accent-color);
-  padding: 15px 30px;
+  padding: 12px 24px;
   border-radius: var(--border-radius);
   font-weight: 600;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
 `;
 
 const SocialLinks = styled(motion.div)`
   display: flex;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   justify-content: flex-start;
 
   @media (max-width: 768px) {
@@ -129,8 +147,8 @@ const SocialLinks = styled(motion.div)`
 `;
 
 const SocialButton = styled(motion.a)`
-  width: 50px;
-  height: 50px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
@@ -148,16 +166,21 @@ const ProfileImageWrapper = styled(motion.div)`
 `;
 
 const ProfileImage = styled.img`
-  width: 400px;
-  height: 400px;
-  max-width: 90%;
+  width: 320px;
+  height: 320px;
+  max-width: 85%;
   object-fit: cover;
   border-radius: 30%;
-  border: 4px solid var(--accent-color);
+  border: 3px solid var(--accent-color);
+
+  @media (max-width: 1024px) {
+    width: 260px;
+    height: 260px;
+  }
 
   @media (max-width: 768px) {
-    width: 300px;
-    height: 300px;
+    width: 220px;
+    height: 220px;
   }
 `;
 
@@ -208,7 +231,7 @@ const Hero = () => {
           >
             <PrimaryButton href="#projects" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               View My Work
-              <FiArrowRight size={18} />
+              <FiArrowRight size={16} />
             </PrimaryButton>
 
             <SecondaryButton
@@ -233,7 +256,7 @@ const Hero = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <FiGithub size={20} />
+              <FiGithub size={18} />
             </SocialButton>
             <SocialButton
               href="https://www.linkedin.com/in/shruti-pathak-384735277/"
@@ -242,9 +265,8 @@ const Hero = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <FiLinkedin size={20} />
+              <FiLinkedin size={18} />
             </SocialButton>
-            
           </SocialLinks>
         </TextContent>
 
@@ -253,7 +275,6 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.5 }}
         >
-          {/* Using imported image */}
           <ProfileImage src={ShrutiImage} alt="Shruti Pathak" />
         </ProfileImageWrapper>
       </Content>

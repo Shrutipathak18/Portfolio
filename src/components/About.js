@@ -7,46 +7,64 @@ import styled from "styled-components";
 
 // ================== Styled Components ==================
 const AboutSection = styled.section`
-  padding: 30px 0;   /* reduced from 50px */
+  padding: 40px 0;
   background: var(--secondary-color);
   position: relative;
   overflow: hidden;
 
   @media (max-width: 768px) {
+    padding: 25px 0;
+  }
+
+  @media (max-width: 468px) {
     padding: 20px 0;
   }
 `;
 
 const Container = styled.div`
-  max-width: 900px;   /* tighter container */
+  max-width: 1100px; /* allow more space on large screens */
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 20px;
+
+  @media (max-width: 468px) {
+    padding: 0 14px;
+  }
 `;
 
 const SectionHeader = styled(motion.div)`
   text-align: center;
-  margin-bottom: 1.5rem;   /* reduced spacing */
+  margin-bottom: 2rem;
+
+  @media (max-width: 468px) {
+    margin-bottom: 1.2rem;
+  }
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 2rem;   /* smaller title */
+  font-size: 2.2rem;
   margin-bottom: 0.5rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+  @media (max-width: 768px) {
+    font-size: 1.8rem;
+  }
   @media (max-width: 468px) {
     font-size: 1.5rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 0.9rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  max-width: 550px;
+  max-width: 600px;
   margin: 0 auto;
-  line-height: 1.4;
+  line-height: 1.5;
 
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
   @media (max-width: 468px) {
     font-size: 0.85rem;
   }
@@ -55,8 +73,12 @@ const SectionSubtitle = styled.p`
 const ContentGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;   /* smaller spacing */
+  gap: 2rem;
   align-items: start;
+
+  @media (max-width: 1024px) {
+    gap: 1.5rem;
+  }
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
@@ -69,32 +91,49 @@ const TextContent = styled(motion.div)`
 `;
 
 const AboutTitle = styled.h3`
-  font-size: 1.4rem;   /* reduced more */
-  margin-bottom: 0.8rem;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
   line-height: 1.3;
 
   @media (max-width: 768px) {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+  }
+  @media (max-width: 468px) {
+    font-size: 1.1rem;
   }
 `;
 
 const AboutDescription = styled.p`
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
   color: var(--text-secondary);
   margin-bottom: 0.8rem;
+
+  /* 👇 Shruti Pathak smaller */
+  strong {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent-color);
+  }
+
+  @media (max-width: 768px) {
+    font-size: 0.85rem;
+  }
+  @media (max-width: 468px) {
+    font-size: 0.8rem;
+  }
 `;
 
 const StatsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
   margin-top: 1rem;
 `;
 
 const StatCard = styled(motion.div)`
   background: rgba(255, 255, 255, 0.05);
-  padding: 0.8rem;
+  padding: 1rem;
   border-radius: var(--border-radius);
   border: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
@@ -107,21 +146,29 @@ const StatCard = styled(motion.div)`
 `;
 
 const StatNumber = styled.div`
-  font-size: 1.3rem;  /* smaller */
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--accent-color);
-  margin-bottom: 0.2rem;
+  margin-bottom: 0.3rem;
+
+  @media (max-width: 468px) {
+    font-size: 1.2rem;
+  }
 `;
 
 const StatLabel = styled.div`
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
+
+  @media (max-width: 468px) {
+    font-size: 0.7rem;
+  }
 `;
 
 const SkillsGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));  
-  gap: 0.8rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1rem;
   margin-top: 1rem;
 `;
 
@@ -140,8 +187,8 @@ const SkillCard = styled(motion.div)`
 `;
 
 const SkillIcon = styled.div`
-  width: 40px;   /* smaller */
-  height: 40px;
+  width: 42px;
+  height: 42px;
   margin: 0 auto 0.6rem;
   background: var(--gradient-primary);
   border-radius: 50%;
@@ -152,14 +199,22 @@ const SkillIcon = styled.div`
 `;
 
 const SkillTitle = styled.h4`
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   margin-bottom: 0.2rem;
+
+  @media (max-width: 468px) {
+    font-size: 0.85rem;
+  }
 `;
 
 const SkillDescription = styled.p`
   font-size: 0.8rem;
   color: var(--text-secondary);
-  line-height: 1.3;
+  line-height: 1.4;
+
+  @media (max-width: 468px) {
+    font-size: 0.75rem;
+  }
 `;
 
 // ================== Data ==================
@@ -219,9 +274,10 @@ const About = () => {
               Innovating at the Intersection of Technology & Creativity
             </AboutTitle>
             <AboutDescription>
-              I’m Shruti Pathak, an Electronics & Computer Science engineer with
-              a passion for creating full-stack applications, AI-powered tools,
-              and performance-driven web solutions.
+              I’m <strong>Shruti Pathak</strong>, an Electronics & Computer
+              Science engineer with a passion for creating full-stack
+              applications, AI-powered tools, and performance-driven web
+              solutions.
             </AboutDescription>
             <AboutDescription>
               Beyond coding, I’ve held leadership roles at KIIT E-Cell,

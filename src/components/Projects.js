@@ -18,24 +18,24 @@ const Container = styled.div`
 
 const SectionHeader = styled(motion.div)`
   text-align: left;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 `;
 
 const SectionTitle = styled.h2`
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
   @media (max-width: 768px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 `;
 
 const SectionSubtitle = styled.p`
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: var(--text-secondary);
   max-width: 600px;
   margin: 0;
@@ -44,35 +44,37 @@ const SectionSubtitle = styled.p`
 const FilterButtons = styled(motion.div)`
   display: flex;
   justify-content: flex-start;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
 `;
 
 const FilterButton = styled(motion.button)`
-  background: ${props => props.active ? 'var(--gradient-primary)' : 'transparent'};
-  color: ${props => props.active ? 'white' : 'var(--text-primary)'};
-  border: 2px solid ${props => props.active ? 'transparent' : 'var(--accent-color)'};
-  padding: 10px 20px;
+  background: ${props => props.active === 'true' ? 'var(--gradient-primary)' : 'transparent'};
+  color: ${props => props.active === 'true' ? 'white' : 'var(--text-primary)'};
+  border: 2px solid ${props => props.active === 'true' ? 'transparent' : 'var(--accent-color)'};
+  padding: 8px 16px;
   border-radius: var(--border-radius);
   cursor: pointer;
   font-weight: 500;
+  font-size: 0.9rem;
   transition: var(--transition);
 
   &:hover {
-    background: ${props => props.active ? 'var(--gradient-primary)' : 'var(--accent-color)'};
-    color: ${props => props.active ? 'white' : 'var(--primary-color)'};
+    background: ${props => props.active === 'true' ? 'var(--gradient-primary)' : 'var(--accent-color)'};
+    color: ${props => props.active === 'true' ? 'white' : 'var(--primary-color)'};
     transform: translateY(-2px);
   }
 `;
 
-const ProjectsGrid = styled.div`
+const ProjectsGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 `;
 
@@ -85,62 +87,64 @@ const ProjectCard = styled(motion.div)`
   position: relative;
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
   }
 `;
 
 const ProjectImage = styled.div`
-  height: 200px;
+  height: 150px;
   background: var(--gradient-primary);
-  position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 2.5rem;
+  color: white;
 `;
 
 const ProjectContent = styled.div`
-  padding: 2rem;
+  padding: 1rem 1.2rem;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  margin-bottom: 0.6rem;
   color: var(--text-primary);
 `;
 
 const ProjectDescription = styled.p`
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
 `;
 
 const ProjectTech = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
 `;
 
 const TechTag = styled.span`
   background: rgba(100, 255, 218, 0.1);
   color: var(--accent-color);
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
+  padding: 3px 10px;
+  border-radius: 16px;
+  font-size: 0.7rem;
   font-weight: 500;
 `;
 
 const ProjectLinks = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.8rem;
 `;
 
 const ProjectLink = styled(motion.a)`
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
+  font-size: 0.85rem;
   color: var(--text-primary);
   text-decoration: none;
   font-weight: 500;
@@ -233,7 +237,6 @@ const Projects = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           {categories.map((category) => (
-            // In the render section, change the active prop to use toString()
             <FilterButton
               key={category.id}
               active={(activeFilter === category.id).toString()}
@@ -262,20 +265,7 @@ const Projects = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 whileHover={{ scale: 1.02 }}
               >
-                <ProjectImage>
-                  <div
-                    style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      height: '100%',
-                      fontSize: '3rem',
-                      color: 'white'
-                    }}
-                  >
-                    {project.image}
-                  </div>
-                </ProjectImage>
+                <ProjectImage>{project.image}</ProjectImage>
                 <ProjectContent>
                   <ProjectTitle>{project.title}</ProjectTitle>
                   <ProjectDescription>{project.description}</ProjectDescription>
@@ -285,7 +275,6 @@ const Projects = () => {
                     ))}
                   </ProjectTech>
                   <ProjectLinks>
-                   
                     <ProjectLink
                       href={project.githubUrl}
                       target="_blank"

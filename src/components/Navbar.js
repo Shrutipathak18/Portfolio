@@ -9,7 +9,7 @@ const NavContainer = styled(motion.nav)`
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(10, 10, 10, 0.95);
+  background: rgba(10, 10, 10, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 `;
@@ -18,25 +18,24 @@ const NavContent = styled.div`
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px;
+  height: 64px; /* smaller navbar height */
 
   @media (max-width: 768px) {
-    padding: 0 16px;
+    height: 56px; /* smaller on tablet */
   }
 
   @media (max-width: 480px) {
-    padding: 0 12px;
-    height: 70px;
+    height: 52px; /* even smaller on phone */
   }
 `;
 
 const Logo = styled(motion.a)`
   font-family: 'Playfair Display', serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem; /* slightly smaller */
   font-weight: 700;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -48,7 +47,7 @@ const Logo = styled(motion.a)`
 
 const NavLinks = styled.div`
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
 
   @media (max-width: 768px) {
@@ -62,6 +61,7 @@ const NavLink = styled(motion.a)`
   font-weight: 500;
   position: relative;
   cursor: pointer;
+  font-size: 0.95rem; /* smaller text */
 
   &::after {
     content: '';
@@ -85,7 +85,7 @@ const MenuButton = styled(motion.button)`
   border: none;
   color: var(--text-primary);
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
 
   @media (max-width: 768px) {
     display: block;
@@ -94,31 +94,38 @@ const MenuButton = styled(motion.button)`
 
 const MobileMenu = styled(motion.div)`
   position: fixed;
-  top: 80px;
+  top: 64px; /* matches navbar height */
   left: 0;
   right: 0;
   background: rgba(10, 10, 10, 0.98);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
+
+  @media (max-width: 768px) {
+    top: 56px;
+  }
+
+  @media (max-width: 480px) {
+    top: 52px;
+  }
 `;
 
 const ResumeButton = styled(motion.a)`
   background: var(--gradient-primary);
   color: white;
-  border: none;
-  padding: 10px 20px;
+  padding: 8px 16px;
   border-radius: var(--border-radius);
   font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
-  transition: var(--transition);
+  gap: 6px;
   text-decoration: none;
+  font-size: 0.9rem;
 
   &:hover {
     transform: translateY(-2px);
@@ -148,11 +155,14 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ✅ Updated scroll with offset for fixed navbar
+  // ✅ Dynamic offset based on screen size
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      const yOffset = -80; // adjust based on your navbar height
+      let yOffset = -64; // default for desktop
+      if (window.innerWidth <= 768) yOffset = -56;
+      if (window.innerWidth <= 480) yOffset = -52;
+
       const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
@@ -165,7 +175,7 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       style={{
-        background: scrolled ? 'rgba(10, 10, 10, 0.95)' : 'rgba(10, 10, 10, 0.8)',
+        background: scrolled ? 'rgba(10, 10, 10, 0.95)' : 'rgba(10, 10, 10, 0.85)',
       }}
     >
       <NavContent>
@@ -202,9 +212,6 @@ const Navbar = () => {
           <ResumeButton
             href="/Resume.pdf"
             download="Shruti-Pathak-Resume.pdf"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -215,7 +222,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Button */}
         <MenuButton onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+          {isOpen ? <FiX size={22} /> : <FiMenu size={22} />}
         </MenuButton>
       </NavContent>
 
@@ -232,7 +239,7 @@ const Navbar = () => {
               <NavLink
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                style={{ fontSize: '1.1rem' }}
+                style={{ fontSize: '1rem' }}
               >
                 {item.name}
               </NavLink>

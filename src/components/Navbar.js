@@ -22,20 +22,20 @@ const NavContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 64px; /* smaller navbar height */
+  height: 64px;
 
   @media (max-width: 768px) {
-    height: 56px; /* smaller on tablet */
+    height: 56px;
   }
 
   @media (max-width: 480px) {
-    height: 52px; /* even smaller on phone */
+    height: 52px;
   }
 `;
 
 const Logo = styled(motion.a)`
   font-family: 'Playfair Display', serif;
-  font-size: 1.25rem; /* slightly smaller */
+  font-size: 1.25rem;
   font-weight: 700;
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -61,7 +61,7 @@ const NavLink = styled(motion.a)`
   font-weight: 500;
   position: relative;
   cursor: pointer;
-  font-size: 0.95rem; /* smaller text */
+  font-size: 0.95rem;
 
   &::after {
     content: '';
@@ -94,7 +94,7 @@ const MenuButton = styled(motion.button)`
 
 const MobileMenu = styled(motion.div)`
   position: fixed;
-  top: 64px; /* matches navbar height */
+  top: 64px;
   left: 0;
   right: 0;
   background: rgba(10, 10, 10, 0.98);
@@ -147,23 +147,21 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ✅ Dynamic offset based on screen size
+  // ✅ Smooth scroll with dynamic offset
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      let yOffset = -64; // default for desktop
+      let yOffset = -64;
       if (window.innerWidth <= 768) yOffset = -56;
       if (window.innerWidth <= 480) yOffset = -52;
 
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      const y =
+        element.getBoundingClientRect().top + window.pageYOffset + yOffset;
       window.scrollTo({ top: y, behavior: 'smooth' });
     }
     setIsOpen(false);
@@ -175,7 +173,9 @@ const Navbar = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       style={{
-        background: scrolled ? 'rgba(10, 10, 10, 0.95)' : 'rgba(10, 10, 10, 0.85)',
+        background: scrolled
+          ? 'rgba(10, 10, 10, 0.95)'
+          : 'rgba(10, 10, 10, 0.85)',
       }}
     >
       <NavContent>
@@ -198,7 +198,11 @@ const Navbar = () => {
           {navItems.map((item, index) => (
             <NavLink
               key={item.name}
-              onClick={() => scrollToSection(item.href)}
+              href={item.href}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(item.href);
+              }}
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
@@ -208,7 +212,6 @@ const Navbar = () => {
             </NavLink>
           ))}
 
-          {/* Resume Button */}
           <ResumeButton
             href="/Resume.pdf"
             download="Shruti-Pathak-Resume.pdf"
@@ -238,18 +241,22 @@ const Navbar = () => {
             {navItems.map((item) => (
               <NavLink
                 key={item.name}
-                onClick={() => scrollToSection(item.href)}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(item.href);
+                }}
                 style={{ fontSize: '1rem' }}
               >
                 {item.name}
               </NavLink>
             ))}
 
-            {/* Resume Button Mobile */}
             <ResumeButton
               href="/Resume.pdf"
               download="Shruti-Pathak-Resume.pdf"
               style={{ alignSelf: 'flex-start' }}
+              onClick={() => setIsOpen(false)}
             >
               <FiDownload size={16} />
               Resume

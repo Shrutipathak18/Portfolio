@@ -79,9 +79,9 @@ const ProjectsGrid = styled(motion.div)`
 `;
 
 const ProjectCard = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(5, 5, 5, 1);
   border-radius: var(--border-radius);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(10, 9, 9, 0.88);
   overflow: hidden;
   transition: var(--transition);
   position: relative;

@@ -252,15 +252,16 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-            <ResumeButton
-              href="/Resume.pdf"
-              download="Shruti-Pathak-Resume.pdf"
-              style={{ alignSelf: 'flex-start' }}
-              onClick={() => setIsOpen(false)}
-            >
-              <FiDownload size={16} />
-              Resume
-            </ResumeButton>
+           <ResumeButton
+  href="/Shruti_Latest.pdf"
+  download="Shruti-Pathak-Resume.pdf"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  <FiDownload size={16} />
+  Resume
+</ResumeButton>
+
           </MobileMenu>
         )}
       </AnimatePresence>

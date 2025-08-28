@@ -235,13 +235,14 @@ const Hero = () => {
             </PrimaryButton>
 
             <SecondaryButton
-              href="/Resume.pdf"
-              download="Shruti-Pathak-Resume.pdf"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Download CV
-            </SecondaryButton>
+  href="/Shruti_Latest.pdf"
+  download="Shruti-Pathak-Resume.pdf"
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.95 }}
+>
+  Download CV
+</SecondaryButton>
+
           </CTAButtons>
 
           <SocialLinks

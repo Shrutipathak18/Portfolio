@@ -152,7 +152,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // ✅ Smooth scroll with dynamic offset
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
@@ -213,7 +212,7 @@ const Navbar = () => {
           ))}
 
           <ResumeButton
-            href="/Resume.pdf"
+            href="/Shruti_Latest.pdf"
             download="Shruti-Pathak-Resume.pdf"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -252,16 +251,15 @@ const Navbar = () => {
               </NavLink>
             ))}
 
-           <ResumeButton
-  href="/Shruti_Latest.pdf"
-  download="Shruti-Pathak-Resume.pdf"
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.95 }}
->
-  <FiDownload size={16} />
-  Resume
-</ResumeButton>
-
+            <ResumeButton
+              href="/Shruti_Latest.pdf"
+              download="Shruti-Pathak-Resume.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <FiDownload size={16} />
+              Resume
+            </ResumeButton>
           </MobileMenu>
         )}
       </AnimatePresence>
